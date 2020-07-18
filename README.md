@@ -1,5 +1,5 @@
-# iitp-discord-bot
-A discrod bot for IIT Patna community on any discord server.
+# IIT Patna Discord Bot
+A discord bot for IIT Patna community on any discord server.
 
 ## Essentials
 - test server - https://discord.gg/J4Gb3XH
@@ -9,6 +9,12 @@ A discrod bot for IIT Patna community on any discord server.
 2. `npm install`
 3. put the bot token in `config.json`
 4. `node .`
+Now the bot is up and running
+
+## How to test the bot?
+- Go to the test server.
+- Make sure the bot is online and the node server is running.
+- Send the message on the server. the bot will pick the message and accordingly do actions based on the code.
 
 ## **Task 1**
 
