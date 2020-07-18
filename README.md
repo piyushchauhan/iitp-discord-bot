@@ -1,6 +1,9 @@
 # iitp-discord-bot
 A discrod bot for IIT Patna community on any discord server.
 
+## Essentials
+- test server - https://discord.gg/J4Gb3XH
+
 ## **Task 1**
 
 *Command sytax:* `!verify me` 
