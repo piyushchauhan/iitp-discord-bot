@@ -4,6 +4,12 @@ A discrod bot for IIT Patna community on any discord server.
 ## Essentials
 - test server - https://discord.gg/J4Gb3XH
 
+## Installing
+1. `git clone https://github.com/piyushchauhan/iitp-discord-bot.git && cd iitp-discord-bot`
+2. `npm install`
+3. put the bot token in `config.json`
+4. `node .`
+
 ## **Task 1**
 
 *Command sytax:* `!verify me` 
