@@ -5,7 +5,7 @@ A discord bot for IIT Patna community on any discord server.
 - test server - https://discord.gg/J4Gb3XH
 
 ## Installing
-*NOTE* make sure that you have node js and git installed in your system
+*NOTE* make sure that you have node js installed in your system. If not follow the these installation instructions https://discordjs.guide/preparations/
 1. Clone the repository and switch to its directory - `git clone https://github.com/piyushchauhan/iitp-discord-bot.git && cd iitp-discord-bot`
 2. Install npm packages - `npm install`
 3. Put the bot token in `config.json`
