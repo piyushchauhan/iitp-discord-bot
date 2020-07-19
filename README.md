@@ -29,9 +29,9 @@ _Command sytax:_ `!verify me`
 Steps
 
 1. [ ] fetch the discord username of the person who sent the message.
-2. [ ] query the discord username from google spreadsheet and get the roll number and original name of the person
+2. [ ] query the discord username from google spreadsheet and get the roll number and real name of the person
 3. [ ] assign the roles according to the roll number
-4. [ ] change the nickname to `{discordUserName} - {originalName}`
+4. [ ] change the nickname to `{discordUserName} - {realName}`
 
 ## **Task 2**
 
