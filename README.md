@@ -39,6 +39,7 @@ Perform task 1 when a new user joins the discord server.
 
 ## Tutorials
 
+- [Git and Github Basics](https://youtu.be/xuB1Id2Wxak)
 - [Discord JS Basics](https://www.youtube.com/watch?v=j_sD9udZnCk)
 - [Commands](https://www.youtube.com/watch?v=nTGtiCC3iQM)
 - [Command Handler](https://www.youtube.com/watch?v=AUOb9_aAk7U)
