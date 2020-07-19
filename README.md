@@ -12,15 +12,16 @@ _NOTE_ make sure that you have node js installed in your system. If not follow t
 
 1. Clone the repository and switch to its directory - `git clone https://github.com/piyushchauhan/iitp-discord-bot.git && cd iitp-discord-bot`
 2. Install npm packages - `npm install`
-3. Put the bot token in `config.json`
+3. Put the bot token in `config.json`. For security purpose the bot token is not put in the file. Contact @piyushchauhan to get the bot token.
 4. Run the node server - `node .`
-   Now the bot is up and running
+
+Now the bot is up and running
 
 ## How to test the bot?
 
 - Go to the test server.
 - Make sure the bot is online and the node server is running.
-- Send the message on the server. the bot will pick the message and accordingly do actions based on the code.
+- Send the message(`!ping`) in the `#testing` channel of the [test discord server](https://discord.gg/J4Gb3XH). the bot will pick the message and accordingly do actions based on the code.
 
 ## **Task 1**
 
