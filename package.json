@@ -1,7 +1,7 @@
 {
   "name": "iitp-discord-bot",
   "version": "1.0.0",
-  "description": "A discrod bot for IIT Patna community on any discord server.",
+  "description": "A discord bot for IIT Patna community on any discord server.",
   "main": "main.js",
   "scripts": {
     "test": "npm install"
@@ -11,15 +11,13 @@
     "url": "git+https://github.com/piyushchauhan/iitp-discord-bot.git"
   },
   "author": "Piyush Chauhan(pi.codemonk@gmail.com)",
-  "license": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/piyushchauhan/iitp-discord-bot/issues"
   },
   "homepage": "https://github.com/piyushchauhan/iitp-discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
-    "fs": "0.0.1-security",
-    "googleapis": "^39.2.0",
-    "nodemon": "^2.0.4"
+    "fs": "0.0.1-security"
   }
 }
