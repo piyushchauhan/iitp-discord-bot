@@ -18,6 +18,9 @@
   "homepage": "https://github.com/piyushchauhan/iitp-discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "google-auth-library": "^6.0.5",
+    "googleapis": "^55.0.0",
+    "nodemon": "^2.0.4"
   }
 }
