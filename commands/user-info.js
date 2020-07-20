@@ -1,7 +1,7 @@
 const {
     getAuthToken,
     getSpreadSheetValues
-  } = require('./googleSheetsService.js');
+  } = require('../services/googleSheetsService.js');
 
 const spreadsheetId = "<put spreadsheet id here>";
 const sheetName = "<put sheet name here>";
