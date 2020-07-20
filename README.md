@@ -4,7 +4,7 @@ A discord bot for IIT Patna community on any discord server.
 
 ## Essentials
 
-- test server - https://discord.gg/J4Gb3XH
+- test server - https://discord.gg/BpBPWjz
 
 ## Installing
 
@@ -21,7 +21,7 @@ Now the bot is up and running
 
 - Go to the test server.
 - Make sure the bot is online and the node server is running.
-- Send the message(`!ping`) in the `#testing` channel of the [test discord server](https://discord.gg/J4Gb3XH). the bot will pick the message and accordingly do actions based on the code.
+- Send the message(`!ping`) in the `#testing` channel of the [test discord server](https://discord.gg/BpBPWjz). the bot will pick the message and accordingly do actions based on the code.
 
 ## **Task 1**
 
