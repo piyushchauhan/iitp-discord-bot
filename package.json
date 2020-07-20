@@ -19,7 +19,8 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
-    "googleapis": "^39.2.0",
+    "google-auth-library": "^6.0.5",
+    "googleapis": "^55.0.0",
     "nodemon": "^2.0.4"
   }
 }
