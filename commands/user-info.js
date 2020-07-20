@@ -3,8 +3,8 @@ const {
     getSpreadSheetValues
   } = require('../services/googleSheetsService.js');
 
-const spreadsheetId = "<put spreadsheet id here>";
-const sheetName = "<put sheet name here>";
+const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
+const sheetName = "allStudents";
 
 async function getDetails(message){
 	var author_detail = null;
@@ -20,8 +20,9 @@ async function getDetails(message){
 	catch (error) {
 		console.log(error);
 	};
+	console.log(`Finding match for ${message.author.tag}`);
 	for(var i in author_detail){
-		if (author_detail[i][0] == message.author.username){
+		if (author_detail[i][0] == message.author.tag){
 			message.channel.send(`Your Name is ${author_detail[i][1]}`);
 			message.channel.send(`Your Roll No is ${author_detail[i][2]}`);
 			return;
@@ -34,9 +35,13 @@ async function getDetails(message){
 module.exports = {
 	name: 'user-info',
 	description: 'Display info about yourself.',
-	execute(message) {
-		message.channel.send(`Your username: ${message.author.username}:${message.author.tag}\n
-		Your ID: ${message.author.id}`);
+	execute(message, args) {
+		console.log(`${message}\n${args.toString()}`);
+		let userName = message.author.tag;
+		message.channel.send(`Your username: ${userName}\n`);
+		// TODO fetch the roll number from the username and tag
 		getDetails(message);
+		// var role = message.guild.roles.find(role => role.name === "role-b");
+		// message.member.addRole(role);
 	},
 };
