@@ -20,9 +20,9 @@ async function getDetails(message){
 	catch (error) {
 		console.log(error);
 	};
-	console.log(`Finding match for ${message.author.username}`);
+	console.log(`Finding match for ${message.author.tag}`);
 	for(var i in author_detail){
-		if (author_detail[i][0] == message.author.username){
+		if (author_detail[i][0] == message.author.tag){
 			message.channel.send(`Your Name is ${author_detail[i][1]}`);
 			message.channel.send(`Your Roll No is ${author_detail[i][2]}`);
 			return;
