@@ -41,19 +41,7 @@ ALWAYS set the environment variable repeatedly before running `node .`
 - Make sure the bot is online and the node server is running.
 - Send the message(`!ping`) in the `#testing` channel of the [test discord server](https://discord.gg/BpBPWjz). the bot will pick the message and accordingly do actions based on the code.
 
-## **Task 1**
 
-_Command sytax:_ `!verify me`
-Steps
-
-1. [ ] fetch the discord username of the person who sent the message.
-2. [ ] query the discord username from google spreadsheet and get the roll number and real name of the person
-3. [ ] assign the roles according to the roll number
-4. [ ] change the nickname to `{discordUserName} - {realName}`
-
-## **Task 2**
-
-Perform task 1 when a new user joins the discord server.
 
 ## Tutorials
 
