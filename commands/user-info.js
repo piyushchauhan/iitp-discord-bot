@@ -30,13 +30,13 @@ async function getDetails(message) {
 			let rollNumber = author_detail[i][2];
 			var house = author_detail[i][4];
 
-			if (house === 'A') {
+			if (house[0] === 'A') {
 				house = 'Auriga';
-			} else if (house === 'C') {
+			} else if (house[0] === 'C') {
 				house = 'Cassiopeia';
-			} else if (house === 'P') {
+			} else if (house[0] === 'P') {
 				house = 'Pegasus';
-			} else if (house === 'D') {
+			} else if (house[0] === 'D') {
 				house = 'Darco';
 			}
 
