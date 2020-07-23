@@ -3,6 +3,7 @@ const {
 	getSpreadSheetValues
 } = require('../services/googleSheetsService.js');
 
+// Id of the spreadsheet file (it is in the url of the google sheet)
 const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
 const sheetName = "allStudents";
 
