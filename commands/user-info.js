@@ -27,6 +27,16 @@ async function getDetails(message) {
 		let discordUserNameTag = author_detail[i][0];
 		if (discordUserNameTag == message.author.tag) {
 			let realName = author_detail[i][1];
+			let name = realname.split(' ')
+			let newName = []
+
+			function convert(item){
+			  item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
+			  newName.push(item)
+			}
+
+			name.forEach(convert)
+			realname = newName.join(' ')
 			let rollNumber = author_detail[i][2];
 			var house = author_detail[i][4];
 
