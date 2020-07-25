@@ -7,6 +7,21 @@ const {
 const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
 const sheetName = "allStudents";
 
+
+function convertCaseName(realname){
+	let name = realname.split(' ');
+	let newName = [];
+
+	function convert(item){
+	  item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+	  newName.push(item);
+	}
+
+	name.forEach(convert);
+	return newName.join(' ')
+}
+
+
 async function getDetails(message) {
 	var author_detail = null;
 	try {
@@ -27,6 +42,7 @@ async function getDetails(message) {
 		let discordUserNameTag = author_detail[i][0];
 		if (discordUserNameTag == message.author.tag) {
 			let realName = author_detail[i][1];
+			realName = convertCaseName(realName);
 			let rollNumber = author_detail[i][2];
 			var house = author_detail[i][4];
 
