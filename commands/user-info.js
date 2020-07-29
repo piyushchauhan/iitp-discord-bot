@@ -38,7 +38,7 @@ async function getDetails(message) {
 	};
 	console.log(`Finding match for ${message.author.tag}`);
 	for (var i in author_detail) {
-		
+
 		let discordUserNameTag = author_detail[i][0];
 		if (discordUserNameTag == message.author.tag) {
 			let realName = author_detail[i][1];
@@ -74,12 +74,12 @@ module.exports = {
 		console.log(`${message}\n${args.toString()}`);
 		let userName = message.author.tag;
 		// TODO Check for mentions in this command
-		// If someone runs !user-info @dhushyanth in the message 
-		// then identify the mentioned user and fetch the 
+		// If someone runs !user-info @dhushyanth in the message
+		// then identify the mentioned user and fetch the
 		// roll number of that user
 		message.channel.send(`Your username: ${userName}\n`);
 		getDetails(message);
 		// var role = message.guild.roles.find(role => role.name === "role-b");
 		// message.member.addRole(role);
-	},
+	}
 };
