@@ -6,71 +6,30 @@ const {
 const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
 const sheetName = "allStudents";
 
-const g21_role = "737980519014203412"
-const g22_role = "737981925523718155"
-const g23_role = "737982002862489641"
-const g24_role = "737982086723534849"
 
-const cs_role = "735080031461572648"
-const ee_role = "735081111977328660"
-const me_role = "737978500170121256"
-const cb_role = "737979875989913651"
-const ce_role = "737980018545786983"
-const mm_role = "737980217871695924"
 
-async function assignRole(branch,year,message) {
-	if(year === "17"){
-		await message.member.roles.add(g21_role);
-		message.reply(`Year role added`)
-	}
-	else if(year === "18"){
-		await message.member.roles.add(g22_role);
-		message.reply(`Year role added`)
-	}
-	else if(year === "19"){
-		await message.member.roles.add(g23_role);
-		message.reply(`Year role added`)
-	}
-	else if(year === "20"){
-		message.member.roles.add(g24_role);
-		message.reply(`Year role added`)
+async function assignRole(branch,gradYear,message) {
+	let {cache} = message.guild.roles;
+let modRole = cache.find(role => role.name=== "moderator");
+
+	let yearRole = cache.find(role => role.name.includes(gradYear));
+	if(!yearRole){
+			message.reply("Year role could not be assigned. \
+			Please ping"+"<@&"+modRole.id+"> to identify you.")
 	}
 	else{
-		message.channel.send("Year role could not be assigned. \
-		Please ping @moderator to identify you.")
+		await message.member.roles.add(yearRole);
+		message.reply("Year role added");
 	}
-	if(branch === "cs"){
-		message.member.roles.add(cs_role);
-		message.reply(`Branch role added`)
 
-	}
-	else if(branch === "ee"){
-		message.member.roles.add(ee_role);
-		message.reply(`Branch role added`)
-	}
-	else if(branch === "me"){
-		await message.member.roles.add(me_role);
-		message.reply(`Branch role added`)
-
-	}
-	else if(branch === "cb"){
-		message.member.roles.add(cb_role);
-		message.reply(`Branch role added`)
-
-	}
-	else if(branch === "ce"){
-		message.member.roles.add(ce_role);
-		message.reply(`Branch role added`)
-
-	}
-	else if(branch === "mm"){
-		message.member.roles.add(mm_role);
-		message.reply(`Branch role added`)
-
+	let branchRole = cache.find(role => role.name.includes(branch));
+	if(!branchRole){
+		message.reply("Branch role could not be assigned. \
+		Please ping"+"<@&"+modRole.id+"> to identify you.")
 	}
 	else{
-		message.channel.send("Branch role could not be assigned. \
-		Please ping @moderator to identify you.")
+		await message.member.roles.add(branchRole);
+		message.reply("Branch role added");
 	}
 }
 
@@ -96,6 +55,11 @@ async function getDetails(message,username) {
       let realName = author_detail[i][1];
 
 			let part = realName.split(" ")
+			let q=0, lastName="abc";
+			while(part[q]!== undefined){
+				lastName = part[q];
+				q++;
+			}
 
   //    console.log(`real name ${realName}`);
       let rollNumber = author_detail[i][2];
@@ -103,18 +67,20 @@ async function getDetails(message,username) {
 			let branch = rollNumber.slice(4,6).toLowerCase();
 		//	console.log(`branch ${branch}`);
 			let year = rollNumber.slice(0,2);
+			let gradYear = parseInt(year);
+			gradYear+=4;
 		//	console.log(`year ${year}`);
 			 try {
   			 if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.reply('I\'m missing permissions.');
   			 if (message.author.id === message.guild.ownerID) return message.reply('I can\'t change your nickname.');
 
-  			await message.member.setNickname(`${username}-${part[0]}`);
-				message.reply("Nickname changed");
+					 await message.member.setNickname(`${username}-${part[0]} ${lastName}`);
+	 				 message.reply("Nickname changed");
  			} catch(err) {
    console.error(err);
  }
 
-			assignRole(branch,year,message);
+			assignRole(branch,gradYear,message);
       // console.log(message.guild.roles);
       return;
     }

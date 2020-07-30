@@ -63,7 +63,7 @@ async function getDetails(message) {
 		}
 	};
 	message.reply("Sorry we couldn't find you in our database. \
-	Please ping @moderator to identify you.");
+	Please ping"+"<@&"+modRole.id+"> to identify you.")
 	return;
 }
 
