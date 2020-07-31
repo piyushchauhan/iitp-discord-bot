@@ -23,6 +23,8 @@ function convertCaseName(realname){
 
 
 async function getDetails(message) {
+	let {cache} = message.guild.roles;
+let modRole = cache.find(role => role.name=== "moderator");
 	var author_detail = null;
 	try {
 		const auth = await getAuthToken();

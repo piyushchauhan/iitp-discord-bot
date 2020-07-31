@@ -19,8 +19,8 @@ let modRole = cache.find(role => role.name=== "moderator");
 	}
 	else{
 		await message.member.roles.add(yearRole);
-		message.reply("Year role added");
 	}
+	let yearString ="Year role added\n";
 
 	let branchRole = cache.find(role => role.name.includes(branch));
 	if(!branchRole){
@@ -29,11 +29,15 @@ let modRole = cache.find(role => role.name=== "moderator");
 	}
 	else{
 		await message.member.roles.add(branchRole);
-		message.reply("Branch role added");
 	}
+	let branchString= "Branch role added\n";
+	let messageString= branchString+yearString;
+	return messageString;
 }
 
 async function getDetails(message,username) {
+	let {cache} = message.guild.roles;
+let modRole = cache.find(role => role.name=== "moderator");
 	var author_detail = null;
 	try {
 		const auth = await getAuthToken();
@@ -55,11 +59,7 @@ async function getDetails(message,username) {
       let realName = author_detail[i][1];
 
 			let part = realName.split(" ")
-			let q=0, lastName="abc";
-			while(part[q]!== undefined){
-				lastName = part[q];
-				q++;
-			}
+			let lastName = part[part.length -1];
 
   //    console.log(`real name ${realName}`);
       let rollNumber = author_detail[i][2];
@@ -70,17 +70,18 @@ async function getDetails(message,username) {
 			let gradYear = parseInt(year);
 			gradYear+=4;
 		//	console.log(`year ${year}`);
+	     
+		let messageString= await assignRole(branch,gradYear,message);
 			 try {
   			 if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.reply('I\'m missing permissions.');
   			 if (message.author.id === message.guild.ownerID) return message.reply('I can\'t change your nickname.');
 
 					 await message.member.setNickname(`${username}-${part[0]} ${lastName}`);
-	 				 message.reply("Nickname changed");
+					 messageString+="Nickname Changed\n"
+					 message.reply(messageString)
  			} catch(err) {
    console.error(err);
  }
-
-			assignRole(branch,gradYear,message);
       // console.log(message.guild.roles);
       return;
     }
