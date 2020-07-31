@@ -55,22 +55,23 @@ let modRole = cache.find(role => role.name=== "moderator");
 
   for(var i in author_detail){
     let discordUserNameTag = author_detail[i][0];
+
     if (discordUserNameTag == message.author.tag) {
       let realName = author_detail[i][1];
 
 			let part = realName.split(" ")
 			let lastName = part[part.length -1];
 
-  //    console.log(`real name ${realName}`);
+      console.log(`real name ${realName}`);
       let rollNumber = author_detail[i][2];
-		//	console.log(`roll no ${rollNumber}`);
-			let branch = rollNumber.slice(4,6).toLowerCase();
-		//	console.log(`branch ${branch}`);
+			console.log(`roll no ${rollNumber}`);
+			let branch = rollNumber.slice(4,6);
+			console.log(`branch ${branch}`);
 			let year = rollNumber.slice(0,2);
 			let gradYear = parseInt(year);
 			gradYear+=4;
 		//	console.log(`year ${year}`);
-	     
+
 		let messageString= await assignRole(branch,gradYear,message);
 			 try {
   			 if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.reply('I\'m missing permissions.');
