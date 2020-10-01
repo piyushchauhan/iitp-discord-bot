@@ -12,7 +12,7 @@ _NOTE_ make sure that you have node js installed in your system. If not follow t
 
 1. Clone the repository and switch to its directory - `git clone https://github.com/piyushchauhan/iitp-discord-bot.git && cd iitp-discord-bot`
 2. Install npm packages - `npm install`
-3. Put the bot token in `configs/config.json`. For security purpose the bot token is not put in the file. Contact @piyushchauhan to get the bot token.
+3. Put the bot token in `configs/config.json`. For security purpose the bot token is not put in the file. Contact [@piyushchauhan](https://github.com/piyushchauhan) to get the bot token.
 4. Download the `google-sheets.json` key in `configs/` folder and make sure that `keyFile:'configs/google-sheets.json'` is set in `services/googleSheetsService.js`
 5. Run the node server by running `node .`
 
