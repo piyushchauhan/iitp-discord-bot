@@ -37,7 +37,7 @@ async function getDetails(message) {
 	catch (error) {
 		console.log(error);
 	};
-	console.log(logThemes.info(`Finding match for ${message.author.tag}...`));
+	console.log.info(`Finding match for ${message.author.tag}...`);
 	for (var i in author_detail) {
 
 		let discordUserNameTag = author_detail[i][0];

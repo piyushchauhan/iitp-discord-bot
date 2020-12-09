@@ -5,6 +5,15 @@ colors.setTheme({
     messageHeader: ["brightGreen", "bold"],
     messageString: ["green"],
     info: ["yellow", "dim"],
+    error: ["red", "bold"]
 });
 
-module.exports = colors;
+console.log.header = str => console.log(colors.header(str));
+console.log.message = (messageHeader, messageString) => {
+    console.log(`${colors.messageHeader(messageHeader)}: ${colors.messageString(messageString)}`);
+}
+console.log.info = str => console.log(colors.info(str));
+console.log.error = str => console.log(colors.error(str));
+
+
+module.exports = console;

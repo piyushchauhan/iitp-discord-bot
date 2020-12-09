@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const logThemes = require("./theme.js");
+const console = require("./theme.js");
 const { prefix, token } = require('./configs/config.json');
 
 client.commands = new Discord.Collection();
@@ -13,7 +13,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    console.log(logThemes.header("Bot is Up!"));
+    console.log.header("Bot is Up!");
 });
 
 // Create an event listener for new guild members
@@ -27,8 +27,8 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', message => {
-    console.log(logThemes.messageHeader("Message String: ") + logThemes.messageString(message.toString()));
-    console.log(logThemes.messageHeader("\tSentBy: ") + logThemes.messageString(message.author.toString()));
+    console.log.message("Message String", message.toString());
+    console.log.message("\tSentBy", message.author.toString());
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -51,4 +51,5 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(token)
+    .catch(error => console.log.error("Error in Logging in.\nDid you provide valid bot token?"))
