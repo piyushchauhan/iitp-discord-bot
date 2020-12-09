@@ -1,6 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const logThemes = require("./theme.js");
 const { prefix, token } = require('./configs/config.json');
 
 client.commands = new Discord.Collection();
@@ -12,7 +13,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    console.log('Ready!');
+    console.log(logThemes.header("Bot is Up!"));
 });
 
 // Create an event listener for new guild members
@@ -23,20 +24,21 @@ client.on('guildMemberAdd', member => {
     if (!channel) return;
     // Send the message, mentioning the member
     channel.send(`Welcome to the server, ${member}`);
-  });
+});
 
 client.on('message', message => {
-    console.log(`Message string:${message.toString()}\nSent by:${message.author}`);
+    console.log(logThemes.messageHeader("Message String: ") + logThemes.messageString(message.toString()));
+    console.log(logThemes.messageHeader("\tSentBy: ") + logThemes.messageString(message.author.toString()));
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
-    
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (message.channel.type === 'dm' || message.channel.name !== 'testing'){
-        message.reply('Hello there');
-        return;
-    }
+    // if (message.channel.type === 'dm' || message.channel.name !== 'testing') {
+    //     message.reply('Hello there');
+    //     return;
+    // }
 
 
     if (!client.commands.has(command)) return;

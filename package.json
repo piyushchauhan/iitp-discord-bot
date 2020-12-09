@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/piyushchauhan/iitp-discord-bot#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
     "google-auth-library": "^6.0.5",
