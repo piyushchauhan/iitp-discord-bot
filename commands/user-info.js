@@ -8,13 +8,13 @@ const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
 const sheetName = "allStudents";
 
 
-function convertCaseName(realname){
+function convertCaseName(realname) {
 	let name = realname.split(' ');
 	let newName = [];
 
-	function convert(item){
-	  item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-	  newName.push(item);
+	function convert(item) {
+		item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+		newName.push(item);
 	}
 
 	name.forEach(convert);
@@ -23,6 +23,8 @@ function convertCaseName(realname){
 
 
 async function getDetails(message) {
+	let { cache } = message.guild.roles;
+	let modRole = cache.find(role => role.name === "moderator");
 	var author_detail = null;
 	try {
 		const auth = await getAuthToken();
@@ -38,7 +40,7 @@ async function getDetails(message) {
 	};
 	console.log(`Finding match for ${message.author.tag}`);
 	for (var i in author_detail) {
-		
+
 		let discordUserNameTag = author_detail[i][0];
 		if (discordUserNameTag == message.author.tag) {
 			let realName = author_detail[i][1];
@@ -63,7 +65,7 @@ async function getDetails(message) {
 		}
 	};
 	message.reply("Sorry we couldn't find you in our database. \
-	Please ping @moderator to identify you.");
+	Please ping"+ "<@&" + modRole.id + "> to identify you.")
 	return;
 }
 
@@ -74,12 +76,12 @@ module.exports = {
 		console.log(`${message}\n${args.toString()}`);
 		let userName = message.author.tag;
 		// TODO Check for mentions in this command
-		// If someone runs !user-info @dhushyanth in the message 
-		// then identify the mentioned user and fetch the 
+		// If someone runs !user-info @dhushyanth in the message
+		// then identify the mentioned user and fetch the
 		// roll number of that user
 		message.channel.send(`Your username: ${userName}\n`);
 		getDetails(message);
 		// var role = message.guild.roles.find(role => role.name === "role-b");
 		// message.member.addRole(role);
-	},
+	}
 };

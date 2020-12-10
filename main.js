@@ -13,6 +13,10 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Ready!');
+
+    client.user.setPresence({ activity: { name: 'with discord.js' }, status: "idle" })
+       .then(console.log)
+       .catch(console.error);
 });
 
 // Create an event listener for new guild members
@@ -29,7 +33,7 @@ client.on('message', message => {
     console.log(`Message string:${message.toString()}\nSent by:${message.author}`);
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
-    
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
