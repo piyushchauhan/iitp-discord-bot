@@ -8,13 +8,13 @@ const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
 const sheetName = "allStudents";
 
 
-function convertCaseName(realname){
+function convertCaseName(realname) {
 	let name = realname.split(' ');
 	let newName = [];
 
-	function convert(item){
-	  item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-	  newName.push(item);
+	function convert(item) {
+		item = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+		newName.push(item);
 	}
 
 	name.forEach(convert);
@@ -23,8 +23,8 @@ function convertCaseName(realname){
 
 
 async function getDetails(message) {
-	let {cache} = message.guild.roles;
-let modRole = cache.find(role => role.name=== "moderator");
+	let { cache } = message.guild.roles;
+	let modRole = cache.find(role => role.name === "moderator");
 	var author_detail = null;
 	try {
 		const auth = await getAuthToken();
@@ -65,7 +65,7 @@ let modRole = cache.find(role => role.name=== "moderator");
 		}
 	};
 	message.reply("Sorry we couldn't find you in our database. \
-	Please ping"+"<@&"+modRole.id+"> to identify you.")
+	Please ping"+ "<@&" + modRole.id + "> to identify you.")
 	return;
 }
 
