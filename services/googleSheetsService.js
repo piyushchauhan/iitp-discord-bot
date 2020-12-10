@@ -3,6 +3,9 @@ const sheets = google.sheets('v4');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
+const spreadsheetId = "1RwgUKIjbIGQLABMoT-sSanCl5D-Nhh4dcv473Rcur5c";
+const sheetName = "allStudents";
+
 async function getAuthToken() {
   const auth = new google.auth.GoogleAuth({
     scopes: SCOPES,
@@ -33,5 +36,7 @@ async function getSpreadSheetValues({spreadsheetId, auth, sheetName}) {
 module.exports = {
   getAuthToken,
   getSpreadSheet,
-  getSpreadSheetValues
+  getSpreadSheetValues,
+  spreadsheetId,
+  sheetName,
 }

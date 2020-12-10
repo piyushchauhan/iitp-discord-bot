@@ -1,10 +1,9 @@
 const {
 	getAuthToken,
-	getSpreadSheetValues
+	getSpreadSheetValues,
+	spreadsheetId,
+	sheetName,
 } = require('../services/googleSheetsService.js');
-
-const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
-const sheetName = "allStudents";
 
 
 
@@ -50,6 +49,7 @@ async function getDetails(message, username) {
 	}
 	catch (error) {
 		console.log(error);
+		return;
 	};
 	console.log(`Finding match for ${message.author.tag}`);
 
@@ -67,10 +67,9 @@ async function getDetails(message, username) {
 			console.log(`roll no ${rollNumber}`);
 			let branch = rollNumber.slice(4, 6);
 			console.log(`branch ${branch}`);
-			let year = rollNumber.slice(0, 2);
-			let gradYear = parseInt(year);
+			let rollYear = rollNumber.slice(0, 2);
+			let gradYear = parseInt(rollYear);
 			gradYear += 4;
-			//	console.log(`year ${year}`);
 
 			let messageString = await assignRole(branch, gradYear, message);
 			try {

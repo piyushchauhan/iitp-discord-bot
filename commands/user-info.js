@@ -1,11 +1,11 @@
 const {
 	getAuthToken,
-	getSpreadSheetValues
+	getSpreadSheetValues,
+	spreadsheetId,
+	sheetName,
 } = require('../services/googleSheetsService.js');
 
 // Id of the spreadsheet file (it is in the url of the google sheet)
-const spreadsheetId = "1tLG5wq2MRHDmBVe1FJyTTVO8ABUWy67emr-45--dzbk";
-const sheetName = "allStudents";
 const logThemes = require("../theme.js");
 
 
@@ -39,7 +39,7 @@ async function getDetails(message) {
 	catch (error) {
 		console.log(error);
 	};
-	console.log.info(`Finding match for ${message.author.tag}...`);
+	console.log(`Finding match for ${message.author.tag}...`);
 	for (var i in author_detail) {
 
 		let discordUserNameTag = author_detail[i][0];
