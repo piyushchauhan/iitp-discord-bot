@@ -2,6 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 const client = new Discord.Client();
+const console = require("./theme.js");
 const { prefix, token } = require('./configs/config.json');
 
 client.commands = new Discord.Collection();
@@ -16,8 +17,9 @@ client.once('ready', () => {
     console.log('Ready!');
 
     client.user.setPresence({ activity: { name: 'with discord.js' }, status: "idle" })
-       .then(console.log)
-       .catch(console.error);
+        .then(console.log)
+        .catch(console.error);
+    console.log.header("Bot is Up!");
 });
 
 // Create an event listener for new guild members
@@ -31,7 +33,7 @@ client.on('guildMemberAdd', async member => {
     const canvas = Canvas.createCanvas(900, 500);
     const ctx = canvas.getContext('2d');
 
-    Canvas.registerFont('./UniSans.otf', {family: 'Uni Sans'})
+    Canvas.registerFont('./UniSans.otf', { family: 'Uni Sans' })
 
     const num = Math.floor(Math.random() * 10) + 1;
 
@@ -67,9 +69,9 @@ client.on('guildMemberAdd', async member => {
 
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
     channel.send(attachment);
-  });
+});
 
-  // Utility function for making the text responsive
+// Utility function for making the text responsive
 const applyText = (canvas, text) => {
     const ctx = canvas.getContext('2d');
 
@@ -87,14 +89,15 @@ const applyText = (canvas, text) => {
 };
 
 client.on('message', message => {
-    console.log(`Message string:${message.toString()}\nSent by:${message.author.username}`);
+    console.log.message("Message String", message.toString());
+    console.log.message("\tSentBy", message.author.toString());
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (message.channel.type === 'dm' || message.channel.name !== 'testing'){
+    if (message.channel.type === 'dm' || message.channel.name !== 'testing') {
         message.reply('Hello there');
         return;
     }
@@ -110,4 +113,5 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(token)
+    .catch(error => console.log.error("Error in Logging in.\nDid you provide valid bot token?"))
