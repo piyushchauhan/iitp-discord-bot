@@ -1,4 +1,4 @@
-# IIT Patna Discord Bot
+# IIT Patna Discord Bot [![Support Server](https://img.shields.io/discord/734023727053930556.svg?label=IITP%20Discord&logo=Discord&colorB=7289da&style=flat-square)](https://discord.gg/BpBPWjz)
 
 A discord bot for IIT Patna community on any discord server.
 

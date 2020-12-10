@@ -2,3 +2,4 @@ node_modules/
 iitpbot.code-workspace
 securityStuff.md
 configs/
+package-lock.json
