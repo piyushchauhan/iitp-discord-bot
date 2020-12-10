@@ -29,7 +29,7 @@ async function Listen(message) {
     var res = m.content.split(" ");
     let i = 0;
     while (res[i] !== undefined) {
-      // TODO What does this do?
+      // Check for roll number with a format in the message
       if (/^\d{4}[a-z]{2,3}\d{2}$/i.test(res[i])) {
         roll = res[i];
         return true && !m.author.bot;
@@ -55,16 +55,20 @@ async function Listen(message) {
         break;
       }
     }
-    console.log(author_detail);
     if (flag === 1) {
       const auth = await getAuthToken();
-      const res = await sheets.spreadsheets.values.update({
-        spreadsheetId,
-        range: sheetName,
-        valueInputOption: "USER_ENTERED",
-        resource: { values: author_detail },
-        auth,
-      });
+      try {
+        const res = await sheets.spreadsheets.values.update({
+          spreadsheetId,
+          range: sheetName,
+          valueInputOption: "USER_ENTERED",
+          resource: { values: author_detail },
+          auth,
+        });
+      } catch (error) {
+        // Permission error may occur
+        console.log(error);
+      }
     }
     if (flag !== 1) {
       message.channel.send(
