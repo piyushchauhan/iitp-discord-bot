@@ -25,12 +25,21 @@ Now the bot is up and running
 - Send the message(`!ping`) in the `#testing` channel of the [test discord server](https://discord.gg/BpBPWjz). the bot will pick the message and accordingly do actions based on the code.
 
 ## How to contribute?
+
 1. Join the discord server mentioned above.
 2. Follow the installation instructions above.
 3. If you face any diffuculty feel free to send a message on general channel of the discord server.
 4. After installation, and successfull testing, you can look into the issues that interest you and add a comment on that issue saying that you want to work on it.
 5. If you are confirmed to work on the issue, you can for start working on it. Finally after the issue/feature requirements are complete then you can create a PR targeting `dev` branc. Mentioning the changes you made and the issue you are solving in the PR.
 6. Your PR will be reviewed. If the changes made are appropriate then it will be merged in the `dev` branch.
+
+## Contributors
+
+<a href="https://github.com/piyushchauhan/iitp-discord-bot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=piyushchauhan/iitp-discord-bot" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
 
 ## Tutorials
 
